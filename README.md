@@ -40,8 +40,15 @@ Product.where(name: 'Laptop')
 Product.where('price > ?', 100)
 ```
 
-* Find products where price is greater than 100.
+* Retrieve products where available is true.
 
 ```ruby = 
 Product.where(available: true) 
 ``` 
+
+* Fetch products where quantity is less than 50.
+
+```ruby =
+product = Product.where('quantity < ?', 50)
+product
+```
