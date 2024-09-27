@@ -52,3 +52,9 @@ Product.where(available: true)
 product = Product.where('quantity < ?', 50)
 product
 ```
+
+* Find products where discount is exactly 10%.
+
+```ruby =
+Product.where('discount =?', 10)
+```
