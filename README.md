@@ -130,3 +130,9 @@ Product.where('expiry_date < ?', Date.today)
 ```ruby =
 Product.where('name LIKE ?', 'A%')
 ```
+
+* Retrieve products where price is not equal to 100.
+
+```ruby =
+ Product.where('price != ?', 100)
+```
