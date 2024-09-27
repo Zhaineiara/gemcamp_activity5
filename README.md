@@ -140,5 +140,11 @@ Product.where('name LIKE ?', 'A%')
 * Fetch products where quantity is nil.
 
 ```ruby =
- Product.where('price != ?', 100)
+Product.where(quantity: nil)
+```
+
+* Find products where discount is not nil.
+
+```ruby =
+Product.where.not(discount: nil)
 ```
