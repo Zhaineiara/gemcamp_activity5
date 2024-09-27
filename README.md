@@ -69,3 +69,9 @@ Product.where('name LIKE ?', '%Pro%')
 ```ruby =
 Product.where(description: 'portable')
 ```
+
+* Find products where price is between 50 and 150.
+
+```ruby =
+Product.where(price: 50..150)
+```
