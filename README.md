@@ -162,3 +162,9 @@ Product.where(name: 'Laptop') # to show
 Product.where(quantity: 0).update_all(available: false)
 ```
 
+* Update the description to "Out of stock" for products where available is false.
+ 
+```ruby =
+Product.where(available: false).update_all(description: 'Out of stock')
+```
+
