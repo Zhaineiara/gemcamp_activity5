@@ -156,3 +156,9 @@ Product.where(name: 'Laptop').update_all(price: 120)
 Product.where(name: 'Laptop') # to show
 ```
 
+* Set the available status to false for products where quantity is 0.
+
+```ruby =
+Product.where(quantity: 0).update_all(available: false)
+```
+
