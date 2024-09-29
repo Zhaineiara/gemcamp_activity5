@@ -337,3 +337,9 @@ Product.where(quantity: 1..10).delete_all
 Product.where('available = ? AND price > ?', true, 300).delete_all
 Product.where(available: true).where('price > ?', 300).delete_all
 ```
+
+* Delete products where discount is nil.
+
+```ruby =
+Product.where(discount: nil).delete_all
+```
