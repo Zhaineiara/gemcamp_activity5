@@ -269,3 +269,9 @@ Product.where('description LIKE ?', '%sale%').update_all(price: 150)
 ```ruby =
 Product.where(name: 'Laptop').delete_all
 ```
+
+* Remove all products where available is false.
+
+```ruby =
+Product.where(available: false).delete_all
+```
