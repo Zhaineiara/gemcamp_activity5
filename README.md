@@ -306,3 +306,9 @@ Product.where(expiry_date: Date.today).delete_all
 ```ruby =
 Product.where('name LIKE ?', 'Pro%').delete_all
 ```
+
+* Remove products where price is less than 50.
+
+```ruby =
+Product.where('price < ?', 50).delete_all
+```
