@@ -343,3 +343,9 @@ Product.where(available: true).where('price > ?', 300).delete_all
 ```ruby =
 Product.where(discount: nil).delete_all
 ```
+
+* Remove products where price is exactly 100.
+
+```ruby =
+Product.where(price: 100).delete_all
+```
