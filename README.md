@@ -257,3 +257,9 @@ Product.where('released_at > ?', Date.new(2023, 1, 1)).update_all('quantity = qu
 ```ruby =
 Product.where('discount < ?', 5).update_all(expiry_date: nil)
 ```
+
+* Update the price to 150 where the description contains "sale".
+
+```ruby =
+Product.where('description LIKE ?', '%sale%').update_all(price: 150)
+```
