@@ -233,3 +233,9 @@ Product.where('quantity < ?', 5).update_all('price = price * 0.8')
 ```ruby = 
 Product.where('price >= ?', 300).update_all(discount: 0)
 ```
+
+* Change the description to "Limited time offer" where the discount is 15%.
+
+```ruby =
+Product.where(discount: 15).update_all(description: 'Limited time offer')
+```
