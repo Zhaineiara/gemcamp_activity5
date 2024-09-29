@@ -324,3 +324,9 @@ Product.where('released_at < ?', Date.new(2022, 1, 1)).delete_all
 ```ruby =
 Product.where('description LIKE ?', '%discontinued%').delete_all
 ```
+
+* Delete products where quantity is between 1 and 10.
+
+```ruby =
+Product.where(quantity: 1..10).delete_all
+```
