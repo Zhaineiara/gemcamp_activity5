@@ -215,3 +215,9 @@ Product.where('price > ?', 500).update_all(name: 'Premium Laptop')
 ```ruby =
 Product.where(available: false).update_all(quantity: nil)
 ```
+
+* Update released_at to the current date for products with a price less than 50.
+
+```ruby =
+Product.where('price < ?', 50).update_all(released_at: Date.today)
+```
