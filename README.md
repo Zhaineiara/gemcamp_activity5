@@ -180,4 +180,8 @@ Product.where('discount > ?', 10).update_all(expiry_date: Date.new(2024, 12, 31)
 Product.where('name LIKE ?', '%Pro%').update_all(quantity: 50)
 ```
 
+* Set the price to 200 for all products where discount is nil.
 
+```ruby =
+Product.where(discount:nil).update_all(price:200)
+```
