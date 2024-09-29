@@ -355,3 +355,9 @@ Product.where(price: 100).delete_all
 ```ruby =
 Product.where('released_at < ?', 5.years.ago).delete_all
 ```
+
+* Remove products where description includes "obsolete".
+
+```ruby =
+Product.where('description LIKE ?', '%obsolete%').delete_all
+```
