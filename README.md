@@ -191,3 +191,9 @@ Product.where(discount:nil).update_all(price:200)
 ```ruby =
 Product.where('released_at < ?', Date.new(2023, 1, 1))
 ```
+
+* Update the price to 80 where the quantity is between 10 and 20.
+
+```ruby =
+Product.where(quantity: 10..20).update_all(price:80)
+```
