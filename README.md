@@ -379,3 +379,11 @@ Product.where('expiry_date BETWEEN ? AND ?', Date.today, 1.month.from_now).delet
 ```ruby =
 Product.where('discount < ?', 5).delete_all
 ```
+
+* Remove all products where available is true but quantity is less than 5.
+
+```ruby =
+Product.where(available: true).where('quantity < ?', 5).delete_all
+Product.where('available = ? AND quantity < ?',true, 5).delete_all
+```
+
