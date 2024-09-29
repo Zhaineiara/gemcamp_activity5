@@ -288,3 +288,9 @@ Product.where('price > ?', 500).delete_all
 Product.where('quantity = ?', 0).delete_all
 Product.where(quantity: 0).delete_all
 ```
+
+* Delete products where discount is greater than 20%.
+
+```ruby
+Product.where('discount > ?', 20).delete_all
+```
