@@ -239,3 +239,9 @@ Product.where('price >= ?', 300).update_all(discount: 0)
 ```ruby =
 Product.where(discount: 15).update_all(description: 'Limited time offer')
 ```
+
+* Set available to true for products where the price is between 100 and 200.
+
+```ruby =
+Product.where(price: 100..200).update_all(available: true)
+```
