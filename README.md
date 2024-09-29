@@ -361,3 +361,9 @@ Product.where('released_at < ?', 5.years.ago).delete_all
 ```ruby =
 Product.where('description LIKE ?', '%obsolete%').delete_all
 ```
+
+* Delete products where quantity is nil.
+
+```ruby =
+Product.where(quantity: nil).delete_all
+```
