@@ -281,3 +281,10 @@ Product.where(available: false).delete_all
 ```ruby
 Product.where('price > ?', 500).delete_all
 ```
+
+* Remove all products where quantity is 0.
+
+```ruby
+Product.where('quantity = ?', 0).delete_all
+Product.where(quantity: 0).delete_all
+```
