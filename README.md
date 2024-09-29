@@ -221,3 +221,9 @@ Product.where(available: false).update_all(quantity: nil)
 ```ruby =
 Product.where('price < ?', 50).update_all(released_at: Date.today)
 ```
+
+* Reduce the price by 20% for products where quantity is less than 5.
+
+```ruby =
+Product.where('quantity < ?', 5).update_all('price = price * 0.8')
+```
