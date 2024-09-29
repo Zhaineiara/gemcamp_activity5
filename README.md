@@ -396,7 +396,7 @@ Product.select(:name)
 
 * Write a new migration to rename the description to content
 
-```ruby
+```ruby =
 rails generate migration RenameDescriptionToContent
 rails db:migrate
 rails db:migrate:status
@@ -404,8 +404,16 @@ rails db:migrate:status
 
 * Write a new migration to add a new column image
 
-```ruby
+```ruby =
 rails generate migration AddImageToProducts image:string
+rails db:migrate
+rails db:migrate:status
+```
+
+* Write a new migration to remove the column expiry_date
+
+```ruby =
+rails generate migration RemoveExpiryDateFromProducts expiry_date:date
 rails db:migrate
 rails db:migrate:status
 ```
