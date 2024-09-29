@@ -387,3 +387,9 @@ Product.where(available: true).where('quantity < ?', 5).delete_all
 Product.where('available = ? AND quantity < ?',true, 5).delete_all
 ```
 
+* Print the name of all the products
+
+```ruby =
+Product.pluck(:name)
+Product.select(:name)
+```
