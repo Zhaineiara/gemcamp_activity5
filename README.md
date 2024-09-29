@@ -301,3 +301,8 @@ Product.where('discount > ?', 20).delete_all
 Product.where(expiry_date: Date.today).delete_all
 ```
 
+* Delete all products where name starts with "Pro".
+
+```ruby =
+Product.where('name LIKE ?', 'Pro%').delete_all
+```
