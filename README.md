@@ -227,3 +227,9 @@ Product.where('price < ?', 50).update_all(released_at: Date.today)
 ```ruby =
 Product.where('quantity < ?', 5).update_all('price = price * 0.8')
 ```
+
+* Set the discount to 0% for products with a price greater than or equal to 300.
+
+```ruby = 
+Product.where('price >= ?', 300).update_all(discount: 0)
+```
