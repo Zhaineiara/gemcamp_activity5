@@ -393,3 +393,19 @@ Product.where('available = ? AND quantity < ?',true, 5).delete_all
 Product.pluck(:name)
 Product.select(:name)
 ```
+
+* Write a new migration to rename the description to content
+
+```ruby
+rails generate migration RenameDescriptionToContent
+rails db:migrate
+rails db:migrate:status
+```
+
+* Write a new migration to add a new column image
+
+```ruby
+rails generate migration AddImageToProducts image:string
+rails db:migrate
+rails db:migrate:status
+```
