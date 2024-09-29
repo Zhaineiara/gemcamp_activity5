@@ -209,3 +209,9 @@ Product.where('expiry_date < ?', Date.today).update_all(discount: nil)
 ```ruby =
 Product.where('price > ?', 500).update_all(name: 'Premium Laptop')
 ```
+
+* Set the quantity to nil for products where available is false.
+
+```ruby =
+Product.where(available: false).update_all(quantity: nil)
+```
