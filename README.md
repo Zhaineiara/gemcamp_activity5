@@ -349,3 +349,9 @@ Product.where(discount: nil).delete_all
 ```ruby =
 Product.where(price: 100).delete_all
 ```
+
+* Delete products where released_at is more than 5 years ago.
+
+```ruby =
+Product.where('released_at < ?', 5.years.ago).delete_all
+```
