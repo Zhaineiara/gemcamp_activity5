@@ -275,3 +275,9 @@ Product.where(name: 'Laptop').delete_all
 ```ruby =
 Product.where(available: false).delete_all
 ```
+
+* Delete products where price is greater than 500.
+
+```ruby
+Product.where('price > ?', 500).delete_all
+```
