@@ -318,3 +318,9 @@ Product.where('price < ?', 50).delete_all
 ```ruby =
 Product.where('released_at < ?', Date.new(2022, 1, 1)).delete_all
 ```
+
+* Remove products where description contains "discontinued".
+
+```ruby =
+Product.where('description LIKE ?', '%discontinued%').delete_all
+```
