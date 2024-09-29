@@ -312,3 +312,9 @@ Product.where('name LIKE ?', 'Pro%').delete_all
 ```ruby =
 Product.where('price < ?', 50).delete_all
 ```
+
+* Delete products where released_at is before January 1, 2022.
+
+```ruby =
+Product.where('released_at < ?', Date.new(2022, 1, 1)).delete_all
+```
