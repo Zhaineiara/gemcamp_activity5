@@ -367,3 +367,9 @@ Product.where('description LIKE ?', '%obsolete%').delete_all
 ```ruby =
 Product.where(quantity: nil).delete_all
 ```
+
+* Remove products where expiry_date is within the next month.
+
+```ruby =
+Product.where('expiry_date BETWEEN ? AND ?', Date.today, 1.month.from_now).delete_all
+```
