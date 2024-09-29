@@ -330,3 +330,10 @@ Product.where('description LIKE ?', '%discontinued%').delete_all
 ```ruby =
 Product.where(quantity: 1..10).delete_all
 ```
+
+* Remove all products where available is true and price is greater than 300.
+
+```ruby =
+Product.where('available = ? AND price > ?', true, 300).delete_all
+Product.where(available: true).where('price > ?', 300).delete_all
+```
