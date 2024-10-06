@@ -1,0 +1,37 @@
+<div class="m-5">
+  <table class="table table-bordered table-striped">
+    <caption class="caption-top">List of Products</caption>
+    <thead class="table-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">NAME</th>
+      <th scope="col">CONTENT</th>
+      <th scope="col">QUANTITY</th>
+      <th scope="col">PRICE</th>
+      <th scope="col">DISCOUNT</th>
+      <th scope="col">AVAILABLE</th>
+      <th scope="col">RELEASE DATE</th>
+      <th scope="col">EXPIRY DATE</th>
+      <th scope="col">ACTIONS</th>
+    </tr>
+    </thead>
+
+    <tbody class="table-secondary s">
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.display_value(:id) %></td>
+        <td><%= product.display_value(:name) %></td>
+        <td><%= product.display_value(:content) %></td>
+        <td><%= product.display_value(:quantity) %></td>
+        <td><%= product.display_value(:price) %></td>
+        <td><%= product.display_value(:discount) %></td>
+        <td><%= product.display_value(:available) %></td>
+        <td><%= product.display_value(:released_at) %></td>
+        <td><%= product.display_value(:expiry_date) %></td>
+        <td> EDIT DELETE </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
