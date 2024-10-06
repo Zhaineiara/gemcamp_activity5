@@ -14,7 +14,7 @@ Product.create(name: 'Pro Laptop A4', price: 450.00, quantity: 4, description: '
 ```
 
 * Create atleast 10 records using the save method
-
+    
 ```ruby =
 product1 = Product.new(name: 'Pro Laptop A12', price: 650.00, quantity: 0, description: 'obsolete', available: false, released_at: Date.new(2024, 3, 1), expiry_date: nil, discount: 20.0); product1.save
 product2 = Product.new(name: 'Laptop', price: 100.00, quantity: 2, description: 'Limited time offer', available: true, released_at: Date.today, expiry_date: Date.today + 30, discount: 5.0); product2.save
