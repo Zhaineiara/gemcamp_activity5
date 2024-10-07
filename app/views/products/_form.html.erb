@@ -1,0 +1,105 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card rounded-top">
+        <button type="button" class="btn-close position-absolute top-0 end-0 m-2" aria-label="Close" onclick="window.location='<%= products_path %>'"></button>
+        <div class="card-header bg-primary text-white rounded-top">
+          <h3 class="mb-0"><%= product.new_record? ? "Create New Product" : "Update Product" %></h3>
+        </div>
+        <div class="card-body auto">
+          <%= form_with model: @product, local: true do |form| %>
+            <% if @product.errors.any? %>
+              <div class="alert alert-danger">
+                <h4 class="alert-heading">There were some errors with your submission:</h4>
+                <ul>
+                  <% @product.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <div class="mb-3">
+              <%= form.label :name, class: "form-label" %>
+              <%= form.text_field :name, class: "form-control", placeholder: "Enter product name" %>
+            </div>
+
+            <div class="mb-3">
+              <%= form.label :content, class: "form-label" %>
+              <%= form.text_area :content, class: "form-control", placeholder: "Enter product description", rows: 4 %>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <%= form.label :quantity, class: "form-label" %>
+                <%= form.number_field :quantity, class: "form-control", min: 0, placeholder: "0" %>
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <%= form.label :price, class: "form-label" %>
+                <div class="input-group">
+                  <span class="input-group-text">$</span>
+                  <%= form.number_field :price, step: '0.01', class: "form-control", min: 0, placeholder: "0.00" %>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <%= form.label :discount, class: "form-label" %>
+                <div class="input-group">
+                  <%= form.number_field :discount, step: '0.01', class: "form-control", min: 0, max: 100, placeholder: "0.00" %>
+                  <span class="input-group-text">%</span>
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <%= form.label :available, "Available", class: "form-label" %>
+                <div class="form-check">
+                  <%= form.radio_button :available, true, id: "available_true", class: "form-check-input" %>
+                  <%= form.label :available_true, "Yes", class: "form-check-label" %>
+                </div>
+                <div class="form-check">
+                  <%= form.radio_button :available, false, id: "available_false", class: "form-check-input" %>
+                  <%= form.label :available_false, "No", class: "form-check-label" %>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <%= form.label :released_at, class: "form-label" %>
+                <div class="input-group">
+                  <%= form.date_select :released_at,
+                                       { start_year: Date.today.year - 5,
+                                         end_year: Date.today.year + 5,
+                                         include_blank: true },
+                                       class: "form-control" %>
+                  <span class="input-group-text">MM/DD/YYYY</span>
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <%= form.label :expiry_date, class: "form-label" %>
+                <div class="input-group">
+                  <%= form.date_select :expiry_date,
+                                       { start_year: Date.today.year - 5,
+                                         end_year: Date.today.year + 5,
+                                         include_blank: true },
+                                       class: "form-control" %>
+                  <span class="input-group-text">MM/DD/YYYY</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-grid">
+              <%= form.submit @product.new_record? ? "Create Product" : "Update Product", class: "btn btn-success btn-lg" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

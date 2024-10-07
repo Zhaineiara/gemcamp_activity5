@@ -33,7 +33,7 @@
         <td class="text-center"><%= product.display_value(:released_at) %></td>
         <td class="text-center"><%= product.display_value(:expiry_date) %></td>
         <td class="text-center">
-          <%= link_to "Edit", new_product_path, class: "btn btn-secondary" %>
+          <%= link_to "Edit", edit_product_path(product), class: "btn btn-secondary" %>
           <%= link_to "Delete", new_product_path, class: "btn btn-danger" %>
         </td>
       </tr>
