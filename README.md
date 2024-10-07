@@ -14,7 +14,7 @@ Product.create(name: 'Pro Laptop A4', price: 450.00, quantity: 4, description: '
 ```
 
 * Create atleast 10 records using the save method
-    
+
 ```ruby =
 product1 = Product.new(name: 'Pro Laptop A12', price: 650.00, quantity: 0, description: 'obsolete', available: false, released_at: Date.new(2024, 3, 1), expiry_date: nil, discount: 20.0); product1.save
 product2 = Product.new(name: 'Laptop', price: 100.00, quantity: 2, description: 'Limited time offer', available: true, released_at: Date.today, expiry_date: Date.today + 30, discount: 5.0); product2.save
@@ -109,14 +109,14 @@ Product.where(quantity: 10..100)
 * Find products where discount is greater than or equal to 5%.
 
 ```ruby =
-Product.where('discount >= ?',5)
+Product.where('discount >= ?', 5)
 ```
 
 * Retrieve products where price is less than or equal to 200 and available is true.
 
 ```ruby =
 Product.where('price <= ? AND available = ?', 200, true)
-Product.where('price <= ?',200).where(available:true)
+Product.where('price <= ?', 200).where(available: true)
 ```
 
 * Fetch products where expiry_date is before today’s date.
@@ -163,7 +163,7 @@ Product.where(quantity: 0).update_all(available: false)
 ```
 
 * Update the description to "Out of stock" for products where available is false.
- 
+
 ```ruby =
 Product.where(available: false).update_all(description: 'Out of stock')
 ```
@@ -183,7 +183,7 @@ Product.where('name LIKE ?', '%Pro%').update_all(quantity: 50)
 * Set the price to 200 for all products where discount is nil.
 
 ```ruby =
-Product.where(discount:nil).update_all(price:200)
+Product.where(discount: nil).update_all(price: 200)
 ```
 
 * Mark products as available if their released_at is before January 1, 2023.
@@ -195,7 +195,7 @@ Product.where('released_at < ?', Date.new(2023, 1, 1))
 * Update the price to 80 where the quantity is between 10 and 20.
 
 ```ruby =
-Product.where(quantity: 10..20).update_all(price:80)
+Product.where(quantity: 10..20).update_all(price: 80)
 ```
 
 * Remove any discount (set to nil) for products where expiry_date is before today.
@@ -384,7 +384,7 @@ Product.where('discount < ?', 5).delete_all
 
 ```ruby =
 Product.where(available: true).where('quantity < ?', 5).delete_all
-Product.where('available = ? AND quantity < ?',true, 5).delete_all
+Product.where('available = ? AND quantity < ?', true, 5).delete_all
 ```
 
 * Print the name of all the products
@@ -398,22 +398,22 @@ Product.select(:name)
 
 ```ruby =
 rails generate migration RenameDescriptionToContent
-rails db:migrate
-rails db:migrate:status
+rails db: migrate
+rails db: migrate : status
 ```
 
 * Write a new migration to add a new column image
 
 ```ruby =
-rails generate migration AddImageToProducts image:string
-rails db:migrate
-rails db:migrate:status
+rails generate migration AddImageToProducts image: string
+rails db: migrate
+rails db: migrate : status
 ```
 
 * Write a new migration to remove the column expiry_date
 
 ```ruby =
-rails generate migration RemoveExpiryDateFromProducts expiry_date:date
-rails db:migrate
-rails db:migrate:status
+rails generate migration RemoveExpiryDateFromProducts expiry_date: date
+rails db: migrate
+rails db: migrate : status
 ```

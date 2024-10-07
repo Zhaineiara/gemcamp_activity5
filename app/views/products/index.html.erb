@@ -1,4 +1,8 @@
 <div class="m-5">
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <%= link_to "Add Product", new_product_path, class: "btn btn-primary" %>
+  </div>
+
   <table class="table table-bordered table-striped">
     <caption class="caption-top">List of Products</caption>
     <thead class="table-dark">
@@ -28,7 +32,7 @@
         <td><%= product.display_value(:available) %></td>
         <td><%= product.display_value(:released_at) %></td>
         <td><%= product.display_value(:expiry_date) %></td>
-        <td> EDIT DELETE </td>
+        <td> EDIT DELETE</td>
       </tr>
     <% end %>
     </tbody>
