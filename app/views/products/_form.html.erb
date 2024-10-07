@@ -72,11 +72,11 @@
                 <%= form.label :released_at, class: "form-label" %>
                 <div class="input-group">
                   <%= form.date_select :released_at,
-                                       { start_year: Date.today.year - 5,
-                                         end_year: Date.today.year + 5,
+                                       { start_year: Date.today.year - 10,
+                                         end_year: Date.today.year + 10,
                                          include_blank: true },
                                        class: "form-control" %>
-                  <span class="input-group-text">MM/DD/YYYY</span>
+                  <span class="input-group-text">YYYY/MM/DD</span>
                 </div>
               </div>
 
@@ -84,11 +84,11 @@
                 <%= form.label :expiry_date, class: "form-label" %>
                 <div class="input-group">
                   <%= form.date_select :expiry_date,
-                                       { start_year: Date.today.year - 5,
-                                         end_year: Date.today.year + 5,
+                                       { start_year: Date.today.year - 10,
+                                         end_year: Date.today.year + 10,
                                          include_blank: true },
                                        class: "form-control" %>
-                  <span class="input-group-text">MM/DD/YYYY</span>
+                  <span class="input-group-text">YYYY/MM/DD</span>
                 </div>
               </div>
             </div>
