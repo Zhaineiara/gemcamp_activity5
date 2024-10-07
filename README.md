@@ -417,3 +417,29 @@ rails generate migration RemoveExpiryDateFromProducts expiry_date: date
 rails db: migrate
 rails db: migrate : status
 ```
+
+* VALIDATION CODES
+
+```ruby
+  validates :name, presence: true
+  validates :content, presence: true
+  validates :quantity, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :price, numericality: { greater_than_or_equal_to: 0 }
+  validates :discount, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 100 }, allow_nil: true
+  validates :available, inclusion: { in: [true, false] }
+  validates :released_at, presence: true, allow_nil: true
+  validates :expiry_date, presence: true, comparison: { greater_than: :released_at }, allow_nil: true
+```
+
+* VALIDATION TEST
+
+```ruby = 
+product = Product.find_by(id: 1)
+product.name = nil
+product.valid?
+product.errors.full_messages
+
+product = Product.new(name: "Test Product", content: "Test content", quantity: -5, price: -10, discount: 150, available: nil, released_at: "2023-10-01", expiry_date: "2023-09-01")
+product.valid?
+product.errors.full_messages
+```
