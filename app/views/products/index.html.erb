@@ -1,3 +1,11 @@
+<div class="position-fixed top-0 end-0 p-3">
+  <% flash.each do |key, message| %>
+    <div class="alert alert-<%= key == 'success' ? 'success' : 'danger' %> alert-dismissible fade show" role="alert" style="min-width: 200px;">
+      <%= message %>
+    </div>
+  <% end %>
+</div>
+
 <div class="m-5">
   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
     <%= link_to "Add Product", new_product_path, class: "btn btn-primary" %>

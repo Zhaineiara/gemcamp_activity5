@@ -29,7 +29,8 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to products_path, notice: "Product was successfully created."
+      redirect_to products_path
+      flash[:success] = "Product was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -43,6 +44,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     if @product.update(product_params)
       redirect_to products_path
+      flash[:success] = "Product was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
