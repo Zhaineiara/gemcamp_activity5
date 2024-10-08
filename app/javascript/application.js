@@ -19,3 +19,16 @@ document.addEventListener("turbo:load", function () {
     }, 5000); // 5000 milliseconds = 5 seconds
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const deleteLinks = document.querySelectorAll('a[data-bs-toggle="modal"]');
+    deleteLinks.forEach(link => {
+        link.addEventListener("click", function () {
+            const productId = this.dataset.productId;
+            const deleteButton = document.querySelector("#deleteModal .btn-danger");
+            deleteButton.onclick = function() {
+                deleteButton.form.action = "/products/" + productId;
+            };
+        });
+    });
+});
+
