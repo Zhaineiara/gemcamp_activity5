@@ -458,3 +458,36 @@ product = Product.new(name: "Test Product", content: "Test content", quantity: -
 product.valid?
 product.errors.full_messages
 ```
+
+* ASSOCIATION SUPPLIER 1 TO PRODUCT 1
+
+```ruby =
+product = Product.find(1)
+supplier = Supplier.find(1)
+product.supplier = supplier
+product.save
+```
+
+* ASSOCIATION SUPPLIER 1 TO PRODUCT 17-24
+
+```ruby =
+supplier = Supplier.find(1)
+(17..24).each do |id|
+  product = Product.find(id) 
+  product.supplier = supplier
+  product.save 
+end
+```
+
+* ASSOCIATION PRODUCT 17-24 TO RANDOMLY PUT SUPPLIER
+
+```ruby =
+suppliers = Supplier.where(id: 1..10)
+(17..24).each do |id|
+  product = Product.find(id)
+  random_supplier = suppliers.sample
+  product.supplier = random_supplier
+  product.save
+end
+
+```

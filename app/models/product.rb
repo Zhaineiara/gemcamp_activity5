@@ -1,4 +1,6 @@
 class Product < ApplicationRecord
+  belongs_to :supplier
+
   validates :name, presence: true
   validates :content, presence: true
   validates :quantity, numericality: { only_integer: true, greater_than_or_equal_to: 0 }

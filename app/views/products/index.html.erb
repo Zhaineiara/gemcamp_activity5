@@ -24,6 +24,7 @@
       <th scope="col" class="text-center">AVAILABLE</th>
       <th scope="col" class="text-center">RELEASE DATE</th>
       <th scope="col" class="text-center">EXPIRY DATE</th>
+      <th scope="col" class="text-center">SUPPLIER</th>
       <th scope="col" class="text-center">ACTIONS</th>
     </tr>
     </thead>
@@ -40,6 +41,7 @@
         <td class="text-center"><%= product.display_value(:available) %></td>
         <td class="text-center"><%= product.display_value(:released_at) %></td>
         <td class="text-center"><%= product.display_value(:expiry_date) %></td>
+        <td class="text-center"><%= product.supplier ? product.supplier.name : 'N/A' %></td>
         <td class="text-center">
           <%= link_to 'Show', product_path(product), class: "btn btn-primary"%>
           <%= link_to "Edit", edit_product_path(product), class: "btn btn-warning" %>

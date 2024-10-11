@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_10_06_200838) do
+ActiveRecord::Schema[7.0].define(version: 2024_10_11_063053) do
   create_table "products", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.text "content"
@@ -23,6 +23,17 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_06_200838) do
     t.datetime "updated_at", null: false
     t.string "image"
     t.date "expiry_date"
+    t.bigint "supplier_id"
+    t.index ["supplier_id"], name: "index_products_on_supplier_id"
   end
 
+  create_table "suppliers", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.string "company_name"
+    t.string "contact_info"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "products", "suppliers"
 end
